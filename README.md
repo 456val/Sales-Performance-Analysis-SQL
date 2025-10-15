@@ -1,4 +1,4 @@
-#Retail Sales Analysis Project
+# Retail Sales Analysis Project
 
 This project provides an in-depth analysis of retail sales data using SQL queries to extract meaningful insights from transactional records. The dataset contains invoices, product quantities, unit prices, invoice dates, and customer information, allowing detailed examination of sales patterns, revenue trends, and operational metrics.
 
