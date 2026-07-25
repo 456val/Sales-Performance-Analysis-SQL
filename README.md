@@ -1,127 +1,244 @@
-# Retail Sales Analysis [SQL]
+# Retail Sales Analysis Using SQL
 
-This project provides an in-depth analysis of retail sales data using SQL queries to extract meaningful insights from transactional records. The dataset contains invoices, product quantities, unit prices, invoice dates, and customer information, allowing detailed examination of sales patterns, revenue trends, and operational metrics.
+## Executive Summary
 
-### Data Source
+This project analyzes transactional retail sales data using SQL to uncover trends in revenue, customer purchasing behavior, sales activity, and operational performance. Through time-based analysis and business-focused SQL queries, the project provides insights into invoice generation, revenue growth, peak shopping periods, seasonality, and customer returns.
 
-The data used for this project is the Online Retail dataset
- from the UCI Machine Learning Repository. It contains real-world retail transactions for analysis of sales, revenue, and customer behavior.
+The analysis demonstrates how SQL can be used not only for querying data but also for generating actionable business intelligence that supports operational planning, inventory management, and revenue optimization.
+
+---
+
+## Business Context
+
+Retail businesses generate thousands of transactions every day. Without structured analysis, it becomes difficult to answer critical business questions such as:
+
+- When are customers most likely to purchase?
+- Which periods generate the highest revenue?
+- Are there seasonal sales patterns?
+- When should staffing levels be increased?
+- How frequently do refunds occur?
+
+This project addresses these questions using SQL-based exploratory and business analysis.
+
+---
+
+## Project Objectives
+
+The analysis aims to answer the following business questions:
+
+### Invoice Activity
+
+- How many invoices are generated daily?
+- How many invoices are generated weekly?
+- How many invoices are generated monthly?
+
+### Revenue Performance
+
+- What is the daily revenue?
+- What is the weekly revenue?
+- What is the monthly revenue?
+- How does revenue trend over time?
+
+### Customer Purchasing Behavior
+
+- Which hours of the day have the highest purchasing activity?
+- Which weekday generates the highest number of orders?
+
+### Seasonal Analysis
+
+- Are there seasonal sales patterns?
+- Which quarters generate the most revenue?
+- Which months have the highest and lowest sales volume?
+
+### Operational Performance
+
+- How does weekday revenue compare with weekend revenue?
+- When do cancellations occur most frequently?
+- How long after purchase do refunds occur?
+
+---
+
+## Dataset
+
+The analysis uses the **Online Retail Dataset** from the UCI Machine Learning Repository.
+
+The dataset contains transactional sales records from an online retail business.
 
 ### Dataset Columns
 
-The dataset includes the following columns:
+| Column | Description |
+|---------|-------------|
+| InvoiceNo | Unique invoice identifier |
+| StockCode | Product code |
+| Description | Product description |
+| Quantity | Number of units purchased |
+| InvoiceDate | Transaction date and time |
+| UnitPrice | Price per unit |
+| CustomerID | Customer identifier |
+| Country | Customer country |
 
-InvoiceNo – Unique invoice number
+---
 
-StockCode – Product code
+## Tools and Technologies
 
-Description – Product description
+- SQL Server
+- T-SQL
+- Aggregate Functions
+- Window and Date Functions
+- Business Intelligence
+- Data Analysis
 
-Quantity – Number of units purchased (negative for returns)
+---
 
-InvoiceDate – Date and time of transaction
+## SQL Concepts Demonstrated
 
-UnitPrice – Price per unit
+This project demonstrates the use of:
 
-CustomerID – Unique customer identifier
+- SELECT
+- WHERE
+- GROUP BY
+- ORDER BY
+- COUNT()
+- COUNT(DISTINCT)
+- SUM()
+- AVG()
+- DATEPART()
+- DATENAME()
+- FORMAT()
+- CASE Statements
+- DATEDIFF()
 
-Country – Country of the customer
+---
 
-### Objectives
+## Business Questions Solved
 
-The main goals of this project are:
+- Invoice trends by day, week, and month
+- Revenue trends over time
+- Daily, weekly, and monthly revenue analysis
+- Peak shopping hours
+- Highest-performing weekdays
+- Quarterly sales performance
+- Seasonal sales analysis
+- Weekday vs weekend comparison
+- Highest and lowest sales months
+- Cancellation analysis
+- Refund timing analysis
 
-1.Invoice Generation Trends: Count invoices generated daily, weekly, and monthly; identify busiest hours and days.
+---
 
-2.Revenue Analysis: Calculate daily, weekly, and monthly revenue and average revenue per invoice; evaluate seasonal fluctuations; compare weekdays vs weekends revenue.
+## Key Insights
 
-3.Sales Volume Insights: Identify months with the highest and lowest sales quantities; recognize peak business periods.
+### Invoice Trends
 
-4.Customer Behavior and Refunds: Track cancellations and measure the typical time between purchase and refund.
+- October 6 recorded the highest invoice count (219).
+- February 6 recorded the lowest invoice count (11).
 
-### Methodology
+### Revenue Performance
 
-The analysis is performed using SQL queries with the following techniques:
+- November 14 generated the highest daily revenue.
+- Week 47 of 2011 recorded the strongest weekly performance.
+- December 2011 generated the highest monthly revenue.
 
-COUNT(DISTINCT ...) for unique invoice counts.
+### Seasonal Trends
 
-SUM() and AVG() for revenue calculations.
+- Q1 2011 generated approximately ₦17.41 million in revenue.
+- Q4 2010 closed the year with strong sales performance.
 
-DATEPART() and FORMAT() for time-based aggregations (daily, weekly, monthly, quarterly).
+### Customer Purchasing Behavior
 
-Conditional logic with CASE statements for weekdays vs weekends.
+- Purchasing activity peaked between 12 PM and 4 PM.
+- Thursday generated the highest number of invoices.
+- Sunday consistently recorded the lowest customer activity.
 
-GROUP BY and ORDER BY to organize results meaningfully.
+### Weekday vs Weekend
 
-### Key Insights
-📅 Daily & Weekly Performance
+- Weekdays generated significantly more revenue than weekends.
+- Weekend revenue slightly exceeded weekday revenue during Q3.
 
-October 6 had the highest invoice count (219), while February 6 had the lowest (11).
+### Returns Analysis
 
-November 14 saw the highest daily revenue (₦112,141).
+- No cancellation transactions (negative quantities) were identified in the dataset used for analysis.
+- Refund analysis returned no meaningful trend because cancellation records were unavailable.
 
-Week 47 of 2011 was the strongest across all metrics, while Week 52 reflected a post-holiday slowdown.
+---
 
-### 🗓️ Monthly & Quarterly Trends
+## Business Recommendations
 
-December 2011 was the top month by total revenue.
+### Operations
 
-Q1 2011 generated ₦17.41M.
+- Increase staffing during midday peak periods.
+- Schedule more resources on Thursdays and other high-volume weekdays.
 
-Q4 2010 followed with ₦748,957, signaling a strong close to the year.
+### Marketing
 
-### 📈 Weekday vs Weekend Revenue
-
-Weekdays outperformed weekends across most quarters.
-
-In Q3, weekend sales slightly exceeded weekday performance, possibly due to campaigns or seasonal demand.
-
-### 🕒 Time-of-Day Behavior
-
-Peak transactions occurred between 12–4 PM, marking midday as the optimal engagement window.
-
-Sales began steadily from 8–12 PM and declined after 4 PM.
-
-### 📆 Day-of-Week Performance
-
-Thursday recorded the highest invoice count (5,660), followed by Wednesday and Tuesday.
-
-Sunday consistently had the lowest activity (2,381 invoices), likely due to limited business hours.
-
-### 💰 Average vs Median Revenue
-
-Average revenue highlighted transaction profitability, while median provided a more balanced picture of sales distribution, unaffected by high-value outliers.
-
-### Recommendations & Strategies
-
-Based on the analysis, the following strategies can help optimize business performance:
-
-### Staffing & Operations
-
-Allocate more staff and resources during peak hours (12–4 PM) and on high-performing weekdays (Thursday–Tuesday).
-
-### Marketing & Promotions
-
-Launch promotions or campaigns during low-performing periods (Sundays, February) to boost sales.
-
-Target weekend campaigns in Q3 when weekend sales show higher potential.
+- Launch promotions during slower periods such as Sundays and lower-performing months.
+- Capitalize on stronger weekend demand observed during Q3.
 
 ### Inventory Management
 
-Ensure high-demand products are well-stocked during peak months and quarters.
-
-Monitor slow months for excess inventory to reduce holding costs.
+- Increase stock levels before peak sales periods.
+- Reduce excess inventory during slower months.
 
 ### Revenue Optimization
 
-Analyze high-value transactions to identify profitable product bundles.
+- Identify frequently purchased products for bundle offers.
+- Analyze high-value transactions to improve pricing and promotional strategies.
 
 ### Customer Experience
 
-Track returns and refunds to identify potential issues with products or services.
+- Continue monitoring returns and refunds to identify product quality or service issues.
+- Capture return data more consistently to support future analysis.
 
-Use insights to improve customer satisfaction and reduce cancellation rates.
+---
 
+## Repository Structure
 
+```text
+Retail-Sales-SQL-Analysis/
+├── Retail_Sales_Analysis.sql
+└── README.md
+```
 
+---
+
+## Repository Contents
+
+- SQL queries for business analysis
+- Time-based sales analysis
+- Revenue analysis
+- Customer behavior analysis
+- Seasonal trend analysis
+- Operational performance analysis
+- Business recommendations
+
+---
+
+## Limitations
+
+- The dataset contains no negative quantity transactions; therefore, cancellation and refund analyses are limited.
+- Product profitability and customer segmentation were outside the scope of this project.
+- Currency conversion and inflation adjustments were not considered.
+
+---
+
+## Skills Demonstrated
+
+- SQL
+- T-SQL
+- Data Cleaning
+- Business Intelligence
+- Retail Analytics
+- Time Series Analysis
+- Revenue Analysis
+- Customer Behavior Analysis
+- Exploratory Data Analysis
+- Business Problem Solving
+
+---
+
+## Author
+
+**Valerie Kelechukwu**
+
+**Data Analyst | Business Intelligence Analyst**
 
